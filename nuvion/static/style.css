@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=IBM Plex Mono:100,200,300,400,500,600,700|Space Mono:400,700");
+@import url("https://fonts.googleapis.com/css?family=IBM Plex Mono:100,200,300,400,500,600,700|Poppins:400,700");
 
 * {
   padding: 0;
@@ -8,11 +8,13 @@
 }
 html{
   scroll-behavior: smooth;
+
 }
 body {
   background-color: black;
   height: 100vh;
   overflow-x: hidden;
+  cursor: url('/static/harnish.png'),auto;
 }
 .home{
   height: 100vh;
@@ -73,6 +75,12 @@ body {
   .vertical-line{
     display: none;
   }
+  #bb{
+    z-index: 0;
+  }
+  body{
+    overflow-x: hidden !important;
+  }
   
 }
 .commonHead{
@@ -105,6 +113,8 @@ ABOUT US
   width: 90%;
   margin: auto;
   font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
 }
 .aboutus .about-content p{
   margin: 30px auto;
@@ -117,9 +127,12 @@ ABOUT US
 }
 .value li{
   padding: 20px;
-  background-color: #1b1b1b;
   margin: 2px;
+  background-color: #1c1c1c;
   list-style: none;
+  text-align: justify;
+  text-justify: inter-word;
+  font-family: 'Poppins', sans-serif;
 }
 .subhead{
   background-color: #1e1e1e;
@@ -130,6 +143,7 @@ ABOUT US
   text-align: center;
   margin: 2px;
   list-style: none;
+font-family: 'Poppins', sans-serif;
 }
 
 @media screen and (max-width: 768px) {
@@ -235,7 +249,8 @@ CONTACT US
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  text-align: center;
+  text-align: justify;
+  text-justify: inter-word;
   margin-bottom: 50px;
   margin-top: 50px;
   width: 80%;
@@ -291,6 +306,8 @@ _________________ */
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: justify;
+  text-justify: inter-word;
 }
 .links,
 .footer-contact {
@@ -365,9 +382,23 @@ _________________ */
 }
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
+  .footer{
+      width: 100%;
+  }
   .footer-row {
     flex-direction: column;
     /* align-items: center; */
+  }
+  .footer-company{
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+  .copyright{
+    width: 100%;
+    margin: auto;
+  }
+  .extra{
+    gap: 10px;
   }
 
   .footer-company,
@@ -386,6 +417,33 @@ _________________ */
     margin-bottom: 30px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* .patterns {
+  margin-top: -50px;
+  height: 100vh;
+  display: none;
+  position: fixed;
+  z-index: 999;
+}
+
+svg text {
+  letter-spacing: 10px;
+  stroke: white;
+  font-size: 150px;
+  font-weight: 700;
+  stroke-width: 3;
+  animation: textAnimate 1.5s infinite alternate;
+} */
 
 .patterns {
   display: none;
@@ -419,13 +477,3 @@ svg {
     stroke-dashoffstet: -20%;
   }
 }
-
-
-
-
-
-
-
-
-
-

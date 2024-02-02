@@ -6,7 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home),
     path('home/',views.home),
-    path('termsandcondition/',views.home),
-    path('privacypolicy/',views.home),
+    path('termsandcondition/',views.terms),
+    path('privacypolicy/',views.privacy),
     path('workwithus/', include('workwithus.urls')),
 ]
