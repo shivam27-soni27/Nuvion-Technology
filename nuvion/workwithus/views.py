@@ -4,7 +4,6 @@ from django.shortcuts import redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from email.utils import formataddr
-from django.conf import settings
 
 from django.shortcuts import render,HttpResponse,HttpResponseRedirect
 
@@ -13,6 +12,33 @@ from django.contrib import messages
 from .forms import Workwithus
 from django.contrib.messages import get_messages
 
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
+
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
+
+def send_mail(name,mobile,email,company,field_of_work,desc,webap_v,app_v):
+    print("Sending Mail")
+    subject = "Hello "+name+"! Thank You For Reaching Out to Us."
+    from_email = settings.DEFAULT_FROM_EMAIL
+    html_content = render_to_string('NuvionMail.html', {'name':name,'mobile':mobile,'email':email,'company':company,'field_of_work':field_of_work,'desc':desc,'webap_v':webap_v,'app_v':app_v})
+    
+    email = EmailMultiAlternatives(
+        subject,
+        strip_tags(html_content),
+        settings.DEFAULT_FROM_EMAIL,
+        to=[email],
+        cc=['shivam@nuviontech.com','harsh@nuviontech.com','om@nuviontech.com','harnish@nuviontech.com','jeel@nuviontech.com','samarth@nuviontech.com']
+    )
+    
+    email.content_subtype = "html"
+    email.attach_alternative(html_content, "text/html")
+    
+    email.send()
+    print("Mail Sent Successfully")
 def work_with_us(request):
     if request.method == 'POST':
         form = Workwithus(request.POST)
@@ -47,14 +73,24 @@ def work_with_us(request):
             field_of_work = request.POST.get('field_of_work')
             desc = request.POST.get('desc')
             webap = 'webap' in request.POST
+            print(webap)
+            if webap==True:
+                webap_v="Yes"
+            else:
+                webap_v="No"
             app = 'app' in request.POST
+            if app==True:
+                app_v="Yes"
+            else:
+                app_v="No"
             client = gspread.authorize(credentials)
             sheet = client.open("Work_With_Us_Data")
             sheet_instance=sheet.get_worksheet(0)
             records_data = sheet_instance.get_all_records()
             lenr=len(records_data)
             i=[lenr+1,name,mobile,email,company,field_of_work,webap,app,desc,dt_string]
-            sheet_instance.insert_row(i,lenr+2)
+            # sheet_instance.insert_row(i,lenr+2)
+            # send_mail(name,mobile,email,company,field_of_work,desc,webap_v,app_v)
             messages.success(request, 'Your form has been submitted successfully! Our Team Will Contact You Soon!')
             return redirect('/workwithus')
     else:

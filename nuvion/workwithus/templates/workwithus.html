@@ -36,7 +36,7 @@
     </ul>
     <button onclick="window.location.href='/home'" class="homeBtn">Go to Home</button> 
 {% endif %}
-        <form method="post" action="{% url 'work_with_us' %}">
+        <form method="post" action="{% url 'work_with_us' %}" onsubmit="return validateForm()">
             {% csrf_token %}
             <input type="text" name="name" required placeholder="Name">
             <input type="text" name="mobile" required placeholder="Mobile">
@@ -47,17 +47,36 @@
 
             <!-- Use checkbox-label class for inline checkboxes -->
             <div class="checkboxs">
-            <label class="checkbox-label" for="webapp">Web Application</label>
-            <input type="checkbox" name="webapp">
+            <label class="checkbox-label" for="webap">Web Application</label>
+            <input type="checkbox" name="webap">
             <label class="checkbox-label" for="app">Mobile App</label>
             <input type="checkbox" name="app">
+          </div>
+            <br>
+          <div>
+            <input type="checkbox" name="terms" id="terms">
+            <label class="checkbox-label" for="terms">I agree to the <a href="/termsandcondition">Terms and Conditions</a> and <a href="/privacypolicy">Privacy Plicy</a></label>
+            
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit" id="submitButton" >Submit</button>
         </form>
     </div>
 
+    <script>
+      function validateForm() {
+          var termsCheckbox = document.getElementById("terms");
+          var submitButton = document.getElementById("submitButton");
 
+          if (termsCheckbox.checked) {
+              return true;
+          } else {
+              alert("Please agree to the Terms and Conditions");
+              
+              return false;
+          }
+      }
+  </script>
 
 
     <div class="footer">
@@ -96,9 +115,9 @@
           <p>&copy; 2024 <strong>Nuvion Technologies</strong>| All Rights Reserved.</p>
         </div>
         <div class="extra">
-          <div class="tnc extra-edit"><a href="tnclink">Terms and Conditions</a></div>
-          <div class="pp extra-edit"><a href="pplink">Privacy Policy</a></div>
-          <div class="joinus extra-edit"><a href="joinus">Join Us</a></div>
+          <div class="tnc extra-edit"><a href="/termsandcondition">Terms and Conditions</a></div>
+          <div class="pp extra-edit"><a href="/privacypolicy">Privacy Policy</a></div>
+          <div class="joinus extra-edit"><a href="/workwithus">Join Us</a></div>
         </div>
       </div>
 </body>
