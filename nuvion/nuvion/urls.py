@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from nuvion import views
+handler404 = views.custom_404_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home),
