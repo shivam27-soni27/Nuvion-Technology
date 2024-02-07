@@ -89,8 +89,8 @@ def work_with_us(request):
             records_data = sheet_instance.get_all_records()
             lenr=len(records_data)
             i=[lenr+1,name,mobile,email,company,field_of_work,webap,app,desc,dt_string]
-            # sheet_instance.insert_row(i,lenr+2)
-            # send_mail(name,mobile,email,company,field_of_work,desc,webap_v,app_v)
+            sheet_instance.insert_row(i,lenr+2)
+            send_mail(name,mobile,email,company,field_of_work,desc,webap_v,app_v)
             messages.success(request, 'Your form has been submitted successfully! Our Team Will Contact You Soon!')
             return redirect('/workwithus')
     else:
