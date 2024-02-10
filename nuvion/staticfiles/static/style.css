@@ -1,0 +1,479 @@
+@import url("https://fonts.googleapis.com/css?family=IBM Plex Mono:100,200,300,400,500,600,700|Poppins:400,700");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "IBM Plex Mono";
+  color: white;
+}
+html{
+  scroll-behavior: smooth;
+
+}
+body {
+  background-color: black;
+  height: 100vh;
+  overflow-x: hidden;
+  cursor: url('/static/harnish.png'),auto;
+}
+.home{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-shine{
+  position: absolute;
+  bottom: 0;
+  padding: 12px 48px;
+  margin: 30px auto;
+  color: #ffffff;
+  background: linear-gradient(to right, #4d4d4d 0, white 10%, #4d4d4d 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: -1;
+}
+@keyframes shine{
+  0%
+    {background-position: 0;}
+  60%
+    {background-position: 260px;}
+  100%
+    {background-position: 260px;
+}
+}
+
+@keyframes flicker {
+  0%, 9.999%, 14%, 19.999%, 22%, 32%, 42%, 52%, 62.999%, 64%, 64.999%, 70%, 80%, 90%, 100% {
+    filter: drop-shadow(0px 0px 10px #fafafacb) brightness(1.2);
+  }
+
+  10%, 13.999%, 20%, 21.999%, 33%, 41.999%, 53%, 61.999%, 63%, 63.999%, 65%, 79.999% {
+    filter: none;
+  }
+}
+.home img{
+  margin-top: -150px;
+  animation: flicker 3s infinite;
+  z-index: -1;
+}
+@media screen and (max-width: 768px) {
+  .heading{
+    font-size: 50px;
+  }
+  .hamburger-lines,input[type="checkbox"]{
+    margin-left: 20px;
+  }
+  .vertical-line{
+    display: none;
+  }
+  #bb{
+    z-index: 0;
+  }
+  body{
+    overflow-x: hidden !important;
+  }
+  
+}
+.commonHead{
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px #fff;
+}
+
+
+/* 
+--------------------
+ABOUT US
+-------------------- 
+*/
+
+.aboutus{
+  height: auto;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+}
+.aboutus .aboutBox{
+  padding: 50px;
+}
+.aboutus .about-content{
+  font-size: 20px;
+  width: 90%;
+  margin: auto;
+  font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.aboutus .about-content p{
+  margin: 30px auto;
+  padding: 20px;
+}
+.value{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.value li{
+  padding: 20px;
+  margin: 2px;
+  background-color: #1c1c1c;
+  list-style: none;
+  text-align: justify;
+  text-justify: inter-word;
+  font-family: 'Poppins', sans-serif;
+}
+.subhead{
+  background-color: #1e1e1e;
+  text-align: center;
+}
+.why li{
+  padding: 2px;
+  text-align: center;
+  margin: 2px;
+  list-style: none;
+font-family: 'Poppins', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .value{
+    flex-direction: column;
+  }
+  .about-content{
+    font-size: 15px !important;
+  }
+  .aboutus .aboutBox{
+    padding: 10px;
+  }
+  .why li{
+    margin-top: 15px;
+  }
+}
+
+/* 
+--------------------
+TEAM
+-------------------- 
+*/
+.teamBox{
+  height: auto;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.teamcard{
+  height: 450px;
+  width: 300px;
+  margin: 20px;
+  border: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+  background-color: black;
+}
+.teamcard .profile{
+  width: 100%;
+  height: 300px;
+  border-radius: 0px 0px 50% 50%;
+  margin-top: -20px;
+  overflow: hidden;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.teamcard img{
+  width: 100%;
+  padding: 10px;
+  object-fit: cover;
+}
+.teamcard .name{
+  font-size: 25px;
+  font-weight: 600;
+  margin: 5px;
+}
+.teamcard .position{
+  font-size: 15px;
+  font-weight: 400;
+  margin: 5px;
+}
+.teamcard .social-icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+}
+.teamcard:hover .profile {
+  filter: grayscale(0%); /* Remove the grayscale effect on hover */
+}
+
+.teamcard:hover {
+  box-shadow: 7px 7px 0px 0px #fff;
+  transform: translate(-7px, -7px);
+}
+
+/*
+--------------------
+CONTACT US
+--------------------
+*/
+
+.contactus {
+  width: 100%;
+  /* min-height: 100vh; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  scroll-margin-top: 50px;
+  margin: 100px auto;
+}
+
+.contact-desc{
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  width: 80%;
+}
+
+.contact-btn button{
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.contact-btn button:hover{
+  background-color: #222;
+}
+
+
+@media screen and (max-width: 768px) {
+  .contact-desc{
+    font-size: 15px;
+  }
+  .contactus input,.contactus textarea {
+    width: 90%;
+  }
+  .contactus .contact-form form button {
+    width: 50%; /* Full width */
+  }
+  
+}
+
+/* 
+-----------------
+footer
+_________________ */
+
+.footer {
+  width: 100%;
+  padding: 50px;
+  background-color: rgb(22, 22, 22);
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.footer-company {
+  flex: 1;
+  max-width: 400px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.links,
+.footer-contact {
+  flex: 1;
+  max-width: 300px;
+}
+
+.footer h3 {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+.links ul li a{
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  color: #aaaaaa;
+}
+.links ul li a:hover{
+  color: white;
+}
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.footer-contact h3{
+  font-size: 25px;
+}
+.footer-contact ul li {
+  margin-bottom: 10px;
+  list-style: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-contact a,ul li span{
+  text-decoration: none;
+  font-weight: lighter;
+  color: #aaaaaa;
+}
+.copyright{
+  text-align: center;
+  margin: 30px;
+  margin-top: 100px;
+}
+.footer .extra{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px;
+}
+.extra-edit{
+  font-size: 13px;
+  font-weight: 500;
+  color: #aaaaaa;
+  transition: all 0.3s ease;
+}
+.extra-edit:hover{
+  color: white;
+}
+.footer-company span{
+  font-size: 30px;
+  font-weight: 700;
+
+}
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .footer{
+      width: 100%;
+  }
+  .footer-row {
+    flex-direction: column;
+    /* align-items: center; */
+  }
+  .footer-company{
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+  .copyright{
+    width: 100%;
+    margin: auto;
+  }
+  .extra{
+    gap: 10px;
+  }
+
+  .footer-company,
+  .links,
+  .footer-contact {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* RESPONSIVE */
+@media only screen and (max-width:1200px){
+  .footer .footer-row .footer-company{
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* .patterns {
+  margin-top: -50px;
+  height: 100vh;
+  display: none;
+  position: fixed;
+  z-index: 999;
+}
+
+svg text {
+  letter-spacing: 10px;
+  stroke: white;
+  font-size: 150px;
+  font-weight: 700;
+  stroke-width: 3;
+  animation: textAnimate 1.5s infinite alternate;
+} */
+
+.patterns {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  z-index: 999;
+  transition: opacity 0.8s ease-in-out; 
+}
+
+svg {
+  stroke: white;
+  font-size: 150px;
+  font-weight: 700;
+  stroke-width: 3;
+  animation: textAnimate 1.5s infinite alternate;
+  fill: black;
+}
+
+@keyframes textAnimate {
+  0% {
+    stroke-dasharray: 0 50%;
+    stroke-dashoffset: 20%;
+  }
+
+  100% {
+    stroke-dasharray: 50% 0;
+    stroke-dashoffstet: -20%;
+  }
+}
