@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      document.addEventListener('keydown', function(event) {
+          if ((event.ctrlKey && event.shiftKey && event.keyCode === 73) || (event.ctrlKey && event.shiftKey && event.keyCode === 67) ||
+              (event.ctrlKey && event.KeyCode === 85) || (event.keyCode === 123)) {
+              event.preventDefault(); // Prevent the default behavior
+          }
+          if (event.ctrlKey && event.keyCode === 85) {
+              event.preventDefault(); // Prevent the default behavior
+          }
+      });
+  
+      // Prevent right-click context menu
+      window.addEventListener('contextmenu', function(event) {
+          event.preventDefault();
+      });
+     </script>
     <meta charset="UTF-8" />
     <title>NUVION TECHNOLOGIES</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -101,7 +117,7 @@
           <div class="teamcard">
             <div class="profile"><img src="/static/om.jpeg" alt=""></div>
             <div class="name">Om Sangani</div>
-            <div class="position">FrontEnd Dev</div>
+            <div class="position">CFO</div>
             <div class="social-icons">
               <a href="https://www.instagram.com/omsangani29" target="_blank" title="Instagram">
                 <i class="bi-instagram"></i>
@@ -114,7 +130,7 @@
           <div class="teamcard">
             <div class="profile"><img src="/static/shivam.png" alt=""></div>
             <div class="name">Shivam Soni</div>
-            <div class="position">BackEnd Dev</div>
+            <div class="position">CEO</div>
             <div class="social-icons">
               <a href="https://www.instagram.com/shivam_soni.2712" target="_blank" title="Instagram">
                 <i class="bi-instagram"></i>
@@ -127,7 +143,7 @@
           <div class="teamcard">
             <div class="profile"><img src="/static/harsh.png" alt=""></div>
             <div class="name">Harsh Mavani</div>
-            <div class="position">BackEnd Dev</div>
+            <div class="position">CTO</div>
             <div class="social-icons">
               <a href="https://www.instagram.com/harshmavani24" target="_blank" title="Instagram">
                 <i class="bi-instagram"></i>
@@ -140,7 +156,7 @@
           <div class="teamcard">
             <div class="profile"><img src="/static/jeel.jpeg" alt=""></div>
             <div class="name">Jeel Patel</div>
-            <div class="position">Project Manager</div>
+            <div class="position">CPM</div>
             <div class="social-icons">
               <a href="https://www.instagram.com/shiv0103__" target="_blank" title="Instagram">
                 <i class="bi-instagram"></i>
@@ -153,7 +169,7 @@
           <div class="teamcard">
             <div class="profile"><img src="/static/harnish.png" alt=""></div>
             <div class="name">Harnish Thakkar</div>
-            <div class="position">FrontEnd Dev</div>
+            <div class="position">COO</div>
             <div class="social-icons">
               <a href="https://www.instagram.com/harnish_11_07" target="_blank" title="Instagram">
                 <i class="bi-instagram"></i>
@@ -166,7 +182,7 @@
           <div class="teamcard">
             <div class="profile"><img src="/static/samarth.jpeg" alt=""></div>
             <div class="name">Samarth Bhimani</div>
-            <div class="position">UI/UX Dev</div>
+            <div class="position">CMO</div>
             <div class="social-icons">
               <a href="https://www.instagram.com/s3marth" target="_blank" title="Instagram">
                 <i class="bi-instagram"></i>

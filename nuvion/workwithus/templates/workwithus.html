@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    document.addEventListener('keydown', function(event) {
+        if ((event.ctrlKey && event.shiftKey && event.keyCode === 73) || (event.ctrlKey && event.shiftKey && event.keyCode === 67) ||
+            (event.ctrlKey && event.KeyCode === 85) || (event.keyCode === 123)) {
+            event.preventDefault(); // Prevent the default behavior
+        }
+        if (event.ctrlKey && event.keyCode === 85) {
+            event.preventDefault(); // Prevent the default behavior
+        }
+    });
+
+    // Prevent right-click context menu
+    window.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+    });
+   </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NUVION TECHNOLOGIES</title>
@@ -18,6 +34,50 @@
     
     <style>
       /* Add this style in your CSS or in the head tag */
+      @media screen and (max-width: 1200px) {
+        .checkboxs{
+          align-items: center;
+          
+        }
+        
+      }
+    @media only screen and (max-width: 768px) {
+      .footer{
+          width: 80%;
+      }
+      .footer-row {
+        flex-direction: column;
+        /* align-items: center; */
+      }
+      .footer-company{
+        text-align: justify !important;
+        text-justify: inter-word !important;
+      }
+      .copyright{
+        width: 100%;
+        margin: auto;
+      }
+      .extra{
+        gap: 10px;
+      }
+      .checkboxs{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 20px auto;
+        width: 374px;
+      }
+      .footer-company,
+      .links,
+      .footer-contact {
+        margin-bottom: 20px;
+      }
+      .checkboxs{
+        padding: 10px;
+      }
+    }
       .modal {
         display: none;
         position: fixed;
@@ -78,6 +138,7 @@
       .close-btn:hover {
         background-color: #d13f43;
       }
+      
     </style>
 </head>
 <body>
@@ -221,7 +282,13 @@
           z-index: 999;
           transition: opacity 0.8s ease-in-out; 
         }
-        
+        @media screen and (max-width: 1200px) {
+    .checkboxs{
+      align-items: center;
+      
+    }
+    
+  }
         svg {
           stroke: white;
           font-size: 150px;
