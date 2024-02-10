@@ -172,7 +172,8 @@
         <form method="post" action="{% url 'work_with_us' %}" onsubmit="return validateForm()">
             {% csrf_token %}
             <input type="text" name="name" required placeholder="Name">
-            <input type="text" name="mobile" required placeholder="Mobile">
+            <input type="text" name="mobile" required minlength="10" maxlength="10" pattern="\d{10}" title="Please enter a valid 10-digit mobile number" placeholder="Mobile">
+            
             <input type="email" name="email" required placeholder="Email">
             <input type="text" name="company" required placeholder="Company">
             <input type="text" name="field_of_work" required placeholder="Field of Work">
