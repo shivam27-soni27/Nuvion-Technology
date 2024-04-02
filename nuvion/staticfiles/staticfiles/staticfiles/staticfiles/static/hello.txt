@@ -1,0 +1,39 @@
+dw<div class="card">
+              <div class="face face1">
+                  <div class="content">
+                      <!-- <img src="/img/cmt.png"> -->
+                      <h3>Conference Management System</h3>
+                  </div>
+              </div>
+              <div class="face face2">
+                  <div class="content">
+                      <p>The Conference Management System delivers top-notch functionality to clients, providing an easy and convenient platform for submitting and reviewing research papers. Our system ensures seamless recognition of submissions by experts and facilitates efficient approval processes.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="card">
+              <div class="face face1">
+                  <div class="content">
+                      <img src="/img/gamezotic.png">
+                      <h3>Game Zotic</h3>
+                  </div>
+              </div>
+              <div class="face face2">
+                  <div class="content">
+                      <p>Nuvion Technologies' debut project introduced a streamlined turf booking system, catering to the needs of sports enthusiasts. With user-friendly interfaces, booking turf spaces became effortless, revolutionizing the sports reservation experience.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="card">
+              <div class="face face1">
+                  <div class="content">
+                      <img src="/img/zs.png">
+                      <h3>ZS Collection</h3>
+                  </div>
+              </div>
+              <div class="face face2">
+                  <div class="content">
+                      <p>Introducing ZS Collection, your go-to destination for Kurta shopping online. Enjoy seamless browsing and a wide selection of traditional and contemporary styles, all at your fingertips.</p>
+                  </div>
+              </div>
+          </div>

@@ -41,29 +41,9 @@ def send_mail(name,mobile,email,company,field_of_work,desc,webap_v,app_v):
     print("Mail Sent Successfully")
 from django.shortcuts import render
 from django.http import HttpResponse
-
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
-
-def get_client_hostname(ip):
-    # You can use a third-party service or library to perform reverse DNS lookup
-    # Here, I'm using socket library for demonstration purposes
-    try:
-        hostname = socket.gethostbyaddr(ip)[0]
-    except socket.herror:
-        hostname = "Unable to resolve hostname"
-    return hostname
+import requests
 
 def work_with_us(request):
-    client_ip = get_client_ip(request)
-    client_hostname = get_client_hostname(client_ip)
-    print(client_hostname)
-    print(client_ip)
     if request.method == 'POST':
         form = Workwithus(request.POST)
         if form.is_valid():
@@ -112,7 +92,7 @@ def work_with_us(request):
             sheet_instance=sheet.get_worksheet(0)
             records_data = sheet_instance.get_all_records()
             lenr=len(records_data)
-            i=[lenr+1,name,mobile,email,company,field_of_work,webap,app,desc,dt_string,str(client_ip),str(client_hostname)]
+            i=[lenr+1,name,mobile,email,company,field_of_work,webap,app,desc,dt_string]
             sheet_instance.insert_row(i,lenr+2)
             send_mail(name,mobile,email,company,field_of_work,desc,webap_v,app_v)
             messages.success(request, 'Your form has been submitted successfully! Our Team Will Contact You Soon!')
@@ -120,6 +100,4 @@ def work_with_us(request):
     else:
         form = Workwithus()
     stored_messages = get_messages(request)
-    return render(request, 'workwithus.html', {'form': form, 'messages': stored_messages,'client_ip': client_ip, 'client_hostname': client_hostname})
-
-
+    return render(request, 'index.html', {'form': form, 'messages': stored_messages})
