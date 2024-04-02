@@ -74,7 +74,8 @@ body {
   overflow-x: hidden;
 }
 .main {
-  background: url("{% static '/img/bg.png'}") no-repeat center/cover !important;
+  
+  background: url("{% static '/img/bg.png' %}") no-repeat center/cover !important;
   background-attachment: fixed;
 }
 @keyframes slide {
@@ -780,7 +781,8 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 59%, rgba(0, 0, 0,0.7175463935
   align-items: center;
   flex-direction: column;
   width: 70%;
-  background: url(/img/contact.png) no-repeat center/cover;
+  
+  background: url("{% static '/img/contact.png' %}") no-repeat center/cover;
   border-radius: 20px;
   margin: 50px 0;
 }
